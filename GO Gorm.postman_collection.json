@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "ea0e8f20-e6d3-48e0-a906-f5c5c15099e1",
+		"name": "GO Gorm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34006052"
+	},
+	"item": [
+		{
+			"name": "get root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}:{{port}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{port}}"
+				}
+			},
+			"response": [
+				{
+					"name": "get root",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:31:58 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"this is running\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}:{{port}}/api/user",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get all users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:31:48 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "537"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"name\": \"Angelina Jolie\",\n        \"password\": \"supersecret\",\n        \"email\": \"jolieangelina@mail.com\",\n        \"created_at\": \"2024-06-09T16:32:08.156342+07:00\",\n        \"updated_at\": \"2024-06-09T16:32:55.68717+07:00\"\n    },\n    {\n        \"ID\": 4,\n        \"name\": \"user2300\",\n        \"password\": \"supersecret\",\n        \"email\": \"user2300@mail.com\",\n        \"created_at\": \"2024-06-09T17:31:02.46146+07:00\",\n        \"updated_at\": \"2024-06-09T17:31:02.46146+07:00\"\n    },\n    {\n        \"ID\": 5,\n        \"name\": \"user2300\",\n        \"password\": \"supersecret\",\n        \"email\": \"user2300@mail.com\",\n        \"created_at\": \"2024-06-09T17:31:07.925171+07:00\",\n        \"updated_at\": \"2024-06-09T17:31:07.925171+07:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get single user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}:{{port}}/api/user/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get single user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/user/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:31:38 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "185"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 1,\n    \"name\": \"Angelina Jolie\",\n    \"password\": \"supersecret\",\n    \"email\": \"jolieangelina@mail.com\",\n    \"created_at\": \"2024-06-09T16:32:08.156342+07:00\",\n    \"updated_at\": \"2024-06-09T16:32:55.68717+07:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{basic_auth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"user2300\",\n    \"email\": \"user2300@mail.com\",\n    \"password\": \"supersecret\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}:{{port}}/api/user",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{basic_auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"user2300\",\n    \"email\": \"user2300@mail.com\",\n    \"password\": \"supersecret\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:27:52 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 3,\n    \"name\": \"user2300\",\n    \"password\": \"supersecret\",\n    \"email\": \"user2300@mail.com\",\n    \"created_at\": \"2024-06-09T17:27:52.262837579+07:00\",\n    \"updated_at\": \"2024-06-09T17:27:52.262837579+07:00\"\n}"
+				},
+				{
+					"name": "Create User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{basic_auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"user2300\",\n    \"email\": \"user2300@mail.com\",\n    \"password\": \"supersecret\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:31:07 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 5,\n    \"name\": \"user2300\",\n    \"password\": \"supersecret\",\n    \"email\": \"user2300@mail.com\",\n    \"created_at\": \"2024-06-09T17:31:07.925171908+07:00\",\n    \"updated_at\": \"2024-06-09T17:31:07.925171908+07:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{basic_auth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Brad Pitt \",\n    \"email\": \"bpitt@mail.com\",\n    \"password\": \"supersecret\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}:{{port}}/api/user/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"user",
+						"4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update User",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{basic_auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Brad Pitt \",\n    \"email\": \"bpitt@mail.com\",\n    \"password\": \"supersecret\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/user/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"user",
+								"5"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:30:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"User not found\"\n}"
+				},
+				{
+					"name": "Update User",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{basic_auth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Brad Pitt \",\n    \"email\": \"bpitt@mail.com\",\n    \"password\": \"supersecret\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/user/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"user",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:32:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "177"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 5,\n    \"name\": \"Brad Pitt \",\n    \"password\": \"supersecret\",\n    \"email\": \"bpitt@mail.com\",\n    \"created_at\": \"2024-06-09T17:31:07.925171+07:00\",\n    \"updated_at\": \"2024-06-09T17:32:35.782272122+07:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{basic_auth}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}:{{port}}/api/user/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"user",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete User",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{basic_auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/user/13",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"user",
+								"13"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:28:40 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User deleted successfully\"\n}"
+				},
+				{
+					"name": "Delete User",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{basic_auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/user/13",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"user",
+								"13"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 09 Jun 2024 10:33:04 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"User not found\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "basic_auth",
+			"value": "c3VwZXJhZG1pbjpzdXBlcnNlY3JldHBhc3N3b3Jk"
+		}
+	]
+}
